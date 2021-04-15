@@ -8,3 +8,9 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'product-store';
 }
+export class Product {
+  id: number;
+  title: string;
+  imageUrl: string;
+  description: string;
+} 

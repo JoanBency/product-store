@@ -1,0 +1,21 @@
+<form #userForm = "ngForm">    
+    <div class="mb-3">
+        <label for="productId" class="form-label">ID</label>
+        <input type="number" class="form-control" id="productId" name="id" placeholder="Enter Product Id" ngModel>
+    </div>
+    <div class="mb-3">
+        <label for="productTitle" class="form-label">Title</label>
+        <input type="string" class="form-control" id="productTitle" name="title" placeholder="Enter Product Title" ngModel>
+    </div>
+    <div class="mb-3">
+        <label for="productUrl" class="form-label">Image URL</label>
+        <input type="string" class="form-control" id="productUrl" name="imageUrl" placeholder="Enter Product Image URL" ngModel>
+    </div>
+    <div class="mb-3">
+        <label for="productDesc" class="form-label">Description</label>
+        <textarea class="form-control" id="productDesc" name="description" rows="3" ngModel></textarea>
+    </div>
+    <div class="mb-3">
+        <button type="button" class="btn btn-primary" (click)=addProducts(userForm)>Submit</button>
+    </div>
+</form>
