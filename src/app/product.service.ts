@@ -16,10 +16,11 @@ export class ProductService {
   getProductDetails(id: any) {
     return this.http.get(this.baseUrl + 'product/'+ id);
   }
-  addProducts(product) {
-    // const headers = { 'content-type': 'application/json'}  
-    // const body=JSON.stringify(product);
+  addProducts(product: any) {
     console.log(product);
-    return this.http.post(this.baseUrl + 'product', product);//body,{'headers':headers})
+    return this.http.post(this.baseUrl + 'product', product);
+  }
+  deleteProducts(id: any) {
+    return this.http.delete(this.baseUrl + 'product/' + id);
   }
 }
