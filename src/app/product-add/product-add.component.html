@@ -1,8 +1,8 @@
-<form #userForm = "ngForm">    
-    <div class="mb-3">
+<form style="height: 40vw;" #userForm = "ngForm">    
+    <!-- <div class="mb-3">
         <label for="productId" class="form-label">ID</label>
         <input type="number" class="form-control" id="productId" name="id" placeholder="Enter Product Id" ngModel>
-    </div>
+    </div> -->
     <div class="mb-3">
         <label for="productTitle" class="form-label">Title</label>
         <input type="string" class="form-control" id="productTitle" name="title" placeholder="Enter Product Title" ngModel>
@@ -12,10 +12,14 @@
         <input type="string" class="form-control" id="productUrl" name="imageUrl" placeholder="Enter Product Image URL" ngModel>
     </div>
     <div class="mb-3">
+        <label for="productPrice" class="form-label">Price (in $)</label>
+        <input type="number" class="form-control" id="productPrice" name="price" placeholder="Enter Product Price" ngModel>
+    </div>
+    <div class="mb-3">
         <label for="productDesc" class="form-label">Description</label>
         <textarea class="form-control" id="productDesc" name="description" rows="3" ngModel></textarea>
     </div>
     <div class="mb-3">
-        <button type="button" class="btn btn-primary" (click)=addProducts(userForm)>Submit</button>
+        <button type="button" class="btn btn-dark" (click)=addProducts(userForm)>Submit</button>
     </div>
 </form>

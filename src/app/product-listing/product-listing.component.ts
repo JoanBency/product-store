@@ -10,6 +10,9 @@ import { DOCUMENT } from '@angular/common';
 })
 export class ProductListingComponent implements OnInit {
   products: any;
+  isLoading=true;
+  confirmMsg:boolean;
+  msg:any = false;
 
   constructor(private productService: ProductService, private route: ActivatedRoute, @Inject(DOCUMENT) private _document: Document) { }
 
@@ -17,20 +20,23 @@ export class ProductListingComponent implements OnInit {
     this.productService.getProducts()
     .subscribe(res => {
       this.products = res;
-       }//, err => {
-      //   console.log(err)
-      // }
+      this.isLoading = false;
+       }
       ) 
     }
     delete(id: any) {
-      this.productService.deleteProducts(id)
-        .subscribe(res => {
-        console.log(res);
-        console.log("Deleted Successfully");
-        this.refreshPage();
-        })
+      this.confirmMsg = confirm("Are you sure you wanna delete this?");
+      if(this.confirmMsg === true) {
+        this.productService.deleteProducts(id)
+          .subscribe(res => {
+          console.log(res);
+          console.log("Deleted Successfully");
+          this.refreshPage();
+          })
+        }
       }
       refreshPage() {
         this._document.defaultView.location.reload();
+      
       }
   }

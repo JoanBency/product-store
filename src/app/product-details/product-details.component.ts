@@ -9,6 +9,7 @@ import { ProductService } from '../product.service';
 })
 export class ProductDetailsComponent implements OnInit {
   product: any = null;
+  isLoading=true;
 
   constructor(private productService: ProductService, private route: ActivatedRoute) { }
 
@@ -17,6 +18,7 @@ export class ProductDetailsComponent implements OnInit {
     this.productService.getProductDetails(params.id)
     .subscribe(res => {
     this.product = res;
+    this.isLoading = false;
     }) 
   })
   }
